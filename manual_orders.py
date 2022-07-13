@@ -1,4 +1,3 @@
-import os
 from functools import lru_cache
 import logging
 import sqlite3
@@ -6,6 +5,7 @@ from time import sleep
 from datetime import datetime
 import json
 from tendo import singleton
+from dotenv import dotenv_values
 
 from vendus import VendusClient
 
@@ -37,12 +37,14 @@ logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 
 logging.debug("Starting manual order import")
 
-vendus_api_key = os.getenv("VENDUS_API_KEY")
+
+config = dotenv_values(".env")
+vendus_api_key = config["VENDUS_API_KEY"]
+
 if not vendus_api_key:
-    raise ValueError("Required VENDUS_API_KEY environment variable")
+    raise ValueError("Required VENDUS_API_KEY on .env file")
 
 invoicer = VendusClient(vendus_api_key)
-
 
 @lru_cache
 def get_invoice_details(_id):
