@@ -24,23 +24,14 @@ while True:
         logging.debug("Will print %s %s", _id, code)
 
         try:
-            process = subprocess.Popen(
-                ["lp"],
-                stdin=subprocess.PIPE,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-            )
-            stdoutdata, stderrdata = process.communicate(input=talao)
+            completed_process = subprocess.run(["lp"], input=talao, timeout=5)
+            completed_process.check_returncode()
 
-            logging.debug(stdoutdata)
+            cursor.execute("update invoice set printed = 1 where id = (?)", (_id,))
+            invoices.commit()
 
-            if not stderrdata:
-                cursor.execute("update invoice set printed = 1 where id = (?)", (_id,))
-                invoices.commit()
-            else:
-                raise ValueError(
-                    "Failed to print. Unexpected stderr " + str(stderrdata)
-                )
+            logging.info("Printed %s %s %s", _id, code, completed_process.stdout)
+
         except Exception:
             logging.exception("Failed to print. Will retry")
 
