@@ -1,0 +1,422 @@
+query GetTemplateMenu($templateId: String!) {
+  menuTemplate(id: $templateId) {
+    ...MenuTemplateFields
+    parentEntities {
+      ... on Brand {
+        id
+        name
+        __typename
+      }
+      __typename
+    }
+    stores {
+      id
+      menuTemplateConfiguration {
+        ...MenuTemplateStoreConfigurationFields
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment MenuTemplateFields on MenuTemplate {
+  id
+  name
+  entities {
+    ... on MenuTemplateMenu {
+      ...MenuTemplateMenuFields
+      __typename
+    }
+    ... on MenuTemplateCategory {
+      ...MenuTemplateCategoryFields
+      __typename
+    }
+    ... on MenuTemplateItem {
+      ...MenuTemplateItemFields
+      __typename
+    }
+    ... on MenuTemplateModifierGroup {
+      ...MenuTemplateModifierGroupFields
+      __typename
+    }
+    __typename
+  }
+  photos {
+    ...MenuPhotoFields
+    __typename
+  }
+  posConfiguration {
+    externalServiceSlug
+    __typename
+  }
+  __typename
+}
+
+fragment MenuTemplateMenuFields on MenuTemplateMenu {
+  id
+  templateId
+  name {
+    ...LocalizedStringFields
+    __typename
+  }
+  description {
+    ...LocalizedStringFields
+    __typename
+  }
+  defaultLocale
+  childrenIds
+  cuisineTags {
+    id
+    defaultLabel
+    __typename
+  }
+  fulfillmentModes
+  updatedAt
+  __typename
+}
+
+fragment LocalizedStringFields on LocalizedString {
+  locale
+  value
+  __typename
+}
+
+fragment MenuTemplateCategoryFields on MenuTemplateCategory {
+  id
+  templateId
+  name {
+    ...LocalizedStringFields
+    __typename
+  }
+  description {
+    ...LocalizedStringFields
+    __typename
+  }
+  childrenIds
+  serviceVisibility {
+    ... on IncludeServiceVisibility {
+      serviceSlugs
+      __typename
+    }
+    ... on ExcludeServiceVisibility {
+      serviceSlugs
+      __typename
+    }
+    __typename
+  }
+  updatedAt
+  __typename
+}
+
+fragment MenuTemplateItemFields on MenuTemplateItem {
+  id
+  templateId
+  name {
+    ...LocalizedStringFields
+    __typename
+  }
+  description {
+    ...LocalizedStringFields
+    __typename
+  }
+  priceData {
+    ...PriceDataFields
+    __typename
+  }
+  skuId
+  sku {
+    id
+    name
+    skuDescriptors {
+      salesTaxDescriptorIds
+      skuTagIds
+      __typename
+    }
+    skuFactConfigs {
+      ...SkuFactConfigFields
+      __typename
+    }
+    __typename
+  }
+  childrenIds
+  attachedEntityIds
+  serviceVisibility {
+    ... on IncludeServiceVisibility {
+      serviceSlugs
+      __typename
+    }
+    ... on ExcludeServiceVisibility {
+      serviceSlugs
+      __typename
+    }
+    __typename
+  }
+  updatedAt
+  __typename
+}
+
+fragment PriceDataFields on PriceData {
+  price {
+    ...MoneyFields
+    __typename
+  }
+  priceOverrides {
+    rules {
+      ... on PathRule {
+        __typename
+        entityPath {
+          pathNodes {
+            id
+            type
+            __typename
+          }
+          __typename
+        }
+      }
+      ... on ExternalSlugRule {
+        __typename
+        externalServiceSlug
+      }
+      ... on FulfillmentModeRule {
+        __typename
+        fulfillmentMode
+      }
+      __typename
+    }
+    value {
+      ...MoneyFields
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+fragment MoneyFields on Money {
+  units
+  nanos
+  currencyCode
+  __typename
+}
+
+fragment SkuFactConfigFields on SkuFactConfig {
+  skuFactId
+  values {
+    ...SkuFactValueFields
+    __typename
+  }
+  __typename
+}
+
+fragment SkuFactValueFields on SkuFactValue {
+  propertyId
+  value {
+    __typename
+    ... on StringValueWrapper {
+      stringValue: value
+      __typename
+    }
+    ... on BooleanValueWrapper {
+      booleanValue: value
+      __typename
+    }
+    ... on IntegerValueWrapper {
+      integerValue: value
+      __typename
+    }
+    ... on FloatValueWrapper {
+      floatValue: value
+      __typename
+    }
+    ... on DoubleRange {
+      lowDouble: low
+      highDouble: high
+      __typename
+    }
+    ... on IntegerRange {
+      lowInt: low
+      highInt: high
+      __typename
+    }
+  }
+  __typename
+}
+
+fragment MenuTemplateModifierGroupFields on MenuTemplateModifierGroup {
+  id
+  templateId
+  type
+  name {
+    ...LocalizedStringFields
+    __typename
+  }
+  description {
+    ...LocalizedStringFields
+    __typename
+  }
+  selectionData {
+    minimumNumberOfChoices
+    maximumNumberOfChoices
+    maxPerModifierSelectionQuantity
+    __typename
+  }
+  childrenIds
+  updatedAt
+  __typename
+}
+
+fragment MenuPhotoFields on MenuPhoto {
+  id
+  photoServiceFileId
+  photoWidth
+  photoHeight
+  photoUrl
+  thumbnailUrl
+  ofoAffinityTags
+  createdAt
+  fileName
+  fileType
+  sizeBytes
+  focalPoint {
+    ...FocalPointFields
+    __typename
+  }
+  __typename
+}
+
+fragment FocalPointFields on FocalPoint {
+  x
+  y
+  __typename
+}
+
+fragment MenuTemplateStoreConfigurationFields on MenuTemplateStoreConfiguration {
+  id
+  templateId
+  configurations {
+    ... on CustomerMenuStoreConfiguration {
+      id
+      templateEntityId
+      defaultLocale
+      hours {
+        ...HoursDataFields
+        __typename
+      }
+      __typename
+    }
+    ... on CustomerCategoryStoreConfiguration {
+      id
+      templateEntityId
+      __typename
+    }
+    ... on CustomerItemStoreConfiguration {
+      id
+      templateEntityId
+      fulfillmentConfiguration {
+        __typename
+        ... on DirectFulfillmentConfiguration {
+          station {
+            ... on Station {
+              id
+              name
+              __typename
+            }
+            __typename
+          }
+          suspensionStatus {
+            ...SuspensionStatusFields
+            __typename
+          }
+          __typename
+        }
+        ... on CrossSellFulfillmentConfiguration {
+          fulfillmentBrand {
+            ... on RestrictedBrand {
+              name
+              __typename
+            }
+            __typename
+          }
+          suspensionStatus {
+            ...SuspensionStatusFields
+            __typename
+          }
+          __typename
+        }
+        ... on InventoryFulfillmentConfiguration {
+          value
+          suspensionStatus {
+            ...SuspensionStatusFields
+            __typename
+          }
+          __typename
+        }
+      }
+      priceData {
+        ...PriceDataFields
+        __typename
+      }
+      tax {
+        percentageValue {
+          stringValue
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on CustomerModifierGroupStoreConfiguration {
+      id
+      templateEntityId
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+fragment HoursDataFields on HoursData {
+  id
+  regularHours {
+    ...RegularHoursFields
+    __typename
+  }
+  specialHours {
+    ...SpecialHoursFields
+    __typename
+  }
+  __typename
+}
+
+fragment RegularHoursFields on RegularHours {
+  daysOfWeek
+  hours {
+    ...TimeRangeFields
+    __typename
+  }
+  __typename
+}
+
+fragment TimeRangeFields on TimeRange {
+  start
+  end
+  __typename
+}
+
+fragment SpecialHoursFields on SpecialHours {
+  date
+  hours {
+    ...TimeRangeFields
+    __typename
+  }
+  isClosed
+  __typename
+}
+
+fragment SuspensionStatusFields on SuspensionStatus {
+  suspendedUntil
+  isIndefinite
+  __typename
+}

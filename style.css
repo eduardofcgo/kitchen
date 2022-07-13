@@ -1,0 +1,53 @@
+html,
+body {
+  margin: 0;
+  background-color: #eeb9b5;
+  font-size: 30px;
+  font-family: 'Baloo Bhai 2', Arial;
+  color: white;
+  height: 100%;
+}
+
+#orders {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.order {
+  height: 90px;
+  background-color: #ffcb5d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.order.expiring > .timer {
+  visibility: hidden;
+}
+
+.order.expiring {
+  animation: blinker 1s infinite;
+}
+@keyframes blinker {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: yellow;
+  }
+}
+
+.order.hidden,
+.order.unaccepted {
+  display: none;
+}
+
+.order.delayed,
+.order.expired {
+  background-color: #dd7169;
+}
