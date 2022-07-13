@@ -1,7 +1,8 @@
 import logging
 import os
 import json
-from orders import OtterClient
+
+from otter import OtterClient
 
 logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 logger = logging.getLogger("otter")
