@@ -1,0 +1,12 @@
+name: kitchen
+root: .
+
+windows:
+  - kitchen:
+      layout: even-vertical
+      panes:
+        - python3 orders.py
+        - python3 invoicing.py
+        - python3 printing.py
+        - python3 manual_orders.py
+        - python2 -m SimpleHTTPServer
