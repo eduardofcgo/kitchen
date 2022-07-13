@@ -226,12 +226,13 @@ while True:
 
                     logging.debug("Saved invoice %s - %s", code, invoice_id)
 
-                except KeyError:
-                    logging.exception(
-                        "Menu item not found on invoicer, please update invoicing.json"
+                except KeyError as e:
+                    logging.error(
+                        "Menu item %s not found on invoicer, please update invoicing.json",
+                        e,
                     )
                 except Exception:
-                    logging.exception("Invoicer failed. Will retry")
+                    logging.exception("Invoicer failed")
 
     except JSONDecodeError:
         logging.exception("Unable to decode json. Will retry")
