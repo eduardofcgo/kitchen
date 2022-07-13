@@ -96,7 +96,7 @@ class VendusClient:
         return invoices
 
     def get_talao(self, invoice_id):
-        resource_url = self.document_url + "/" + str(invoice_id)
+        resource_url = self.document_url + str(invoice_id)
         params = {"output": "escpos"}
 
         response = self.session.get(resource_url, params=params)
@@ -108,7 +108,7 @@ class VendusClient:
         return talao
 
     def get_invoice_details(self, invoice_id):
-        resource_url = self.document_url + "/" + str(invoice_id)
+        resource_url = self.document_url + str(invoice_id)
 
         response = self.session.get(resource_url)
         try:
