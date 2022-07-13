@@ -1,5 +1,4 @@
 import logging
-import os
 import json
 
 from otter import OtterClient
@@ -7,11 +6,12 @@ from otter import OtterClient
 logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 logger = logging.getLogger("otter")
 
-user = os.getenv("OTTER_USER")
-password = os.getenv("OTTER_PASSWORD")
+config = dotenv_values(".env")
+user = config["OTTER_USER"]
+password = config["OTTER_PASSWORD"]
 
 if not user or not password:
-    raise ValueError("Required OTTER_USER and OTTER_PASSWORD environment variables")
+    raise ValueError("Required OTTER_USER and OTTER_PASSWORD on .env file")
 
 with open("menu_query.graphql") as query_file:
     query = query_file.read()

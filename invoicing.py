@@ -1,16 +1,16 @@
 import logging
 import sqlite3
-import os
 from time import sleep
 from datetime import datetime
 import dateutil.parser
 from collections import Counter
 import json
 from json.decoder import JSONDecodeError
+from tendo import singleton
+from dotenv import dotenv_values
 
 from vendus import VendusClient, InvoiceItem
 from nif import search as search_nif
-from tendo import singleton
 
 
 def generate_invoice_references(ticket, invoice_item_mapping):
@@ -151,9 +151,11 @@ me = singleton.SingleInstance()
 
 invoices = sqlite3.connect("invoices.db")
 
-vendus_api_key = os.getenv("VENDUS_API_KEY")
+config = dotenv_values(".env")
+vendus_api_key = config["VENDUS_API_KEY"]
+
 if not vendus_api_key:
-    raise ValueError("Required VENDUS_API_KEY environment variable")
+    raise ValueError("Required VENDUS_API_KEY on .env file")
 
 invoice_config = {
     "type": "FR",

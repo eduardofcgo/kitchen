@@ -1,8 +1,8 @@
-import os
 import logging
 import math
 from time import sleep
 import json
+from dotenv import dotenv_values
 
 from otter import OtterClient
 
@@ -100,11 +100,12 @@ def get_order_tickets(client, facility_id, limit):
 logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 logger = logging.getLogger("otter")
 
-user = os.getenv("OTTER_USER")
-password = os.getenv("OTTER_PASSWORD")
+config = dotenv_values(".env")
+user = config["OTTER_USER"]
+password = config["OTTER_PASSWORD"]
 
 if not user or not password:
-    raise ValueError("Required OTTER_USER and OTTER_PASSWORD environment variables")
+    raise ValueError("Required OTTER_USER and OTTER_PASSWORD on .env file")
 
 logger.debug("Starting updating orders")
 
