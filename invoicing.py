@@ -1,4 +1,5 @@
 import logging
+import sys
 import sqlite3
 from time import sleep
 from datetime import datetime
@@ -89,12 +90,12 @@ def save_invoice(_id, code, talao):
     talao_blob = sqlite3.Binary(talao)
 
     cursor.execute(
-        "insert into invoice(id, delivery_code, talao, printed) values (?, ?, ?, ?)",
+        "insert into invoice(id, delivery_code, talao, print_id) values (?, ?, ?, ?)",
         (
             _id,
             code,
             talao_blob,
-            0,
+            None,
         ),
     )
 
@@ -182,19 +183,21 @@ while True:
             canceled = ticket["canceled"]
             phone_number = ticket["customerPhone"]
 
-            start_date_iso = ticket["startDate"]
+            start_time_iso = ticket.get("startDate")
 
-            if start_date_iso:
-                start_date = dateutil.parser.isoparse(start_date_iso).date()
-            else:
-                start_date = None
+            if not start_time_iso:
+                raise ValueError("Expects startDate on order")
 
-            was_ordered_today = start_date == datetime.today().date()
+            start_time = dateutil.parser.isoparse(start_time_iso).replace(tzinfo=None)
+
+            ordered_hours_ago = (
+                (datetime.utcnow() - start_time).microseconds / 1000 / 60 / 60
+            )
 
             if (
                 accepted
                 and not canceled
-                and was_ordered_today
+                and ordered_hours_ago < 1
                 and not was_delivery_invoiced(code)
             ):
                 try:
@@ -219,12 +222,19 @@ while True:
                         name,
                         phone_number,
                     )
+
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)
 
                     logging.debug("Invoiced %s - %s", code, invoice_id)
 
-                    save_invoice(invoice_id, code, talao)
+                    try:
+                        save_invoice(invoice_id, code, talao)
+                    except Exception:
+                        logging.exception(
+                            "Invoice saved but failed to mark as invoiced"
+                        )
+                        sys.exit("Exited to prevent invoice duplication")
 
                     logging.debug("Saved invoice %s - %s", code, invoice_id)
 
@@ -233,11 +243,14 @@ while True:
                         "Menu item %s not found on invoicer, please update invoicing.json",
                         e,
                     )
+                except (SystemExit, KeyboardInterrupt):
+                    raise
                 except Exception:
                     logging.exception("Invoicer failed")
-
     except JSONDecodeError:
         logging.exception("Unable to decode json. Will retry")
+    except (SystemExit, KeyboardInterrupt):
+        raise
     except Exception:
         logging.exception("Unexpected failure. Will retry")
 
