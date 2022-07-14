@@ -46,6 +46,7 @@ if not vendus_api_key:
 
 invoicer = VendusClient(vendus_api_key)
 
+
 @lru_cache
 def get_invoice_details(_id):
     return invoicer.get_invoice_details(_id)
