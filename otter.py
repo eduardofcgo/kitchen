@@ -92,4 +92,4 @@ class OtterClient:
 
         response = self.session.post(self.graphql_url, json=data)
 
-        return response.json()
+        return self._get_resource(response)
