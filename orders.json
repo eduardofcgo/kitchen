@@ -1,0 +1,1665 @@
+[
+    {
+        "courierName": "Mukesh K.",
+        "platform": "glovo",
+        "code": "LIED3U2VF",
+        "customerName": "Lucas R.",
+        "customerPhone": "+351911107853",
+        "customerNote": "Do not include utensils",
+        "customerPreviousOrders": 0,
+        "items": [
+            {
+                "skuId": {
+                    "id": "a8a40158-6880-409d-8b25-0069acb0fa05",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 7,
+                    "nanos": 550000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "a0c54d7c-6377-4e16-9797-731eb0e48d4e",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 0
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "2618302624",
+                                "displayId": ""
+                            },
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "dbb7eb2d-da9d-4ec6-b191-5fb5110b92c2",
+                            "menuCustomerItemId": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "dbb7eb2d-da9d-4ec6-b191-5fb5110b92c2"
+                            ],
+                            "stationItemId": {
+                                "id": "a4c22b34-326d-4527-86ed-49c63c208b8e",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "dbb7eb2d-da9d-4ec6-b191-5fb5110b92c2",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "9d03640e-d05c-4128-98a5-81eee3715f00",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 350000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "2504103306",
+                                "displayId": ""
+                            },
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "697934b9-a490-4a88-900d-fc763b2d4487",
+                            "menuCustomerItemId": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "697934b9-a490-4a88-900d-fc763b2d4487"
+                            ],
+                            "stationItemId": {
+                                "id": "1e3c2a35-1c91-44ba-80b5-f3950c4e999c",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "697934b9-a490-4a88-900d-fc763b2d4487",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Lasanha Bolonhesa Carne Assada Desfiada",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 7,
+                        "nanos": 550000000
+                    },
+                    "quantity": 1,
+                    "note": "",
+                    "customerItemIds": [
+                        "9a305cb4-1764-416c-b8fd-41bcec1257b6"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "dbb7eb2d-da9d-4ec6-b191-5fb5110b92c2",
+                    "697934b9-a490-4a88-900d-fc763b2d4487"
+                ]
+            }
+        ],
+        "startDate": "2022-07-13T23:14:19.479Z",
+        "completed": null,
+        "canceled": false,
+        "accepted": true,
+        "durationMinutes": 25,
+        "hideAfterMinutes": 60,
+        "expireAfterMinutes": 1
+    },
+    {
+        "courierName": "Bachitar",
+        "platform": "ubereats",
+        "code": "5E84D",
+        "customerName": "lucas I.",
+        "customerPhone": null,
+        "customerNote": "Do not include utensils",
+        "customerPreviousOrders": 1,
+        "items": [
+            {
+                "skuId": {
+                    "id": "ea625f07-0c84-4f22-9816-15e06d13c226",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 7,
+                    "nanos": 550000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "a0c54d7c-6377-4e16-9797-731eb0e48d4e",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 0
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "70f19d17-ff08-4669-bfa1-5d8cadcd7a59",
+                                "displayId": ""
+                            },
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "a63dddd1-cce9-4989-b076-37367affc25a",
+                            "menuCustomerItemId": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "70c427b9-3048-46fa-8670-463c01ef9a72",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "a63dddd1-cce9-4989-b076-37367affc25a"
+                            ],
+                            "stationItemId": {
+                                "id": "a4c22b34-326d-4527-86ed-49c63c208b8e",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "70c427b9-3048-46fa-8670-463c01ef9a72",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "a63dddd1-cce9-4989-b076-37367affc25a",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "9d03640e-d05c-4128-98a5-81eee3715f00",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 350000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "689e497d-9d34-4389-855f-1b1940c0accd",
+                                "displayId": ""
+                            },
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "69925c7e-0639-4649-938b-da488aa218ad",
+                            "menuCustomerItemId": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "70c427b9-3048-46fa-8670-463c01ef9a72",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "69925c7e-0639-4649-938b-da488aa218ad"
+                            ],
+                            "stationItemId": {
+                                "id": "1e3c2a35-1c91-44ba-80b5-f3950c4e999c",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "70c427b9-3048-46fa-8670-463c01ef9a72",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "69925c7e-0639-4649-938b-da488aa218ad",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Lasanha Imposs\u00edvel",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 7,
+                        "nanos": 550000000
+                    },
+                    "quantity": 2,
+                    "note": "",
+                    "customerItemIds": [
+                        "056f0cdb-6765-4d83-ad99-9cd3db7de2ec"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "a63dddd1-cce9-4989-b076-37367affc25a",
+                    "69925c7e-0639-4649-938b-da488aa218ad"
+                ]
+            },
+            {
+                "skuId": {
+                    "id": "a8a40158-6880-409d-8b25-0069acb0fa05",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 7,
+                    "nanos": 550000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "a0c54d7c-6377-4e16-9797-731eb0e48d4e",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 0
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "70f19d17-ff08-4669-bfa1-5d8cadcd7a59",
+                                "displayId": ""
+                            },
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "740883f5-954c-41f6-a45b-27b18304023f",
+                            "menuCustomerItemId": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "740883f5-954c-41f6-a45b-27b18304023f"
+                            ],
+                            "stationItemId": {
+                                "id": "a4c22b34-326d-4527-86ed-49c63c208b8e",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "740883f5-954c-41f6-a45b-27b18304023f",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "9d03640e-d05c-4128-98a5-81eee3715f00",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 350000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "689e497d-9d34-4389-855f-1b1940c0accd",
+                                "displayId": ""
+                            },
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "d6f49290-1ff5-4daa-994a-95f43cb30a74",
+                            "menuCustomerItemId": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 350000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "d6f49290-1ff5-4daa-994a-95f43cb30a74"
+                            ],
+                            "stationItemId": {
+                                "id": "1e3c2a35-1c91-44ba-80b5-f3950c4e999c",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "d6f49290-1ff5-4daa-994a-95f43cb30a74",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Lasanha Bolonhesa Carne Assada Desfiada",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 7,
+                        "nanos": 550000000
+                    },
+                    "quantity": 2,
+                    "note": "",
+                    "customerItemIds": [
+                        "f99ae552-df56-4815-8fad-b4adb214ee0c"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "740883f5-954c-41f6-a45b-27b18304023f",
+                    "d6f49290-1ff5-4daa-994a-95f43cb30a74"
+                ]
+            }
+        ],
+        "startDate": "2022-07-13T23:14:37.391Z",
+        "completed": true,
+        "canceled": false,
+        "accepted": true,
+        "durationMinutes": 25,
+        "hideAfterMinutes": 60,
+        "expireAfterMinutes": 1
+    },
+    {
+        "courierName": "Eber",
+        "platform": "ubereats",
+        "code": "3839E",
+        "customerName": "Lisandro G.",
+        "customerPhone": null,
+        "customerNote": "",
+        "customerPreviousOrders": 1,
+        "items": [
+            {
+                "skuId": {
+                    "id": "8faebb29-c789-4dfc-8a51-52d181b03d58",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 7,
+                    "nanos": 550000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "d266a7b6-ba1c-41f8-8604-c2bc1f683c9d",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 2,
+                            "nanos": 800000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "5a13d7b9-60f8-4484-9e60-e224c460d4c7",
+                                "displayId": ""
+                            },
+                            "name": "S. Pellegrino Grande 50cl",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 2,
+                                "nanos": 800000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "a8eaae01-762c-4baf-95aa-f7e2aa99bfa3",
+                            "menuCustomerItemId": "436d5704-4f8f-4f65-b279-920538cfa696",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "86c63737-87d6-4ad1-a339-cbdb23b693ff",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "436d5704-4f8f-4f65-b279-920538cfa696",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "S. Pellegrino Grande 50cl",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 2,
+                                "nanos": 800000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "a8eaae01-762c-4baf-95aa-f7e2aa99bfa3"
+                            ],
+                            "stationItemId": {
+                                "id": "9675b3db-ab92-4608-93b4-d1c4034652dd",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "436d5704-4f8f-4f65-b279-920538cfa696",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "86c63737-87d6-4ad1-a339-cbdb23b693ff",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "436d5704-4f8f-4f65-b279-920538cfa696",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "a8eaae01-762c-4baf-95aa-f7e2aa99bfa3",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "a8ca7e34-55a5-4fe9-8d5a-6a6492d2a022",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 650000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "db875176-771d-4292-bd3e-36652cef8137",
+                                "displayId": ""
+                            },
+                            "name": "Com talheres e guardanapo biodegrad\u00e1veis",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 650000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "1c7be05e-1715-451b-babb-9802b38f1273",
+                            "menuCustomerItemId": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "86c63737-87d6-4ad1-a339-cbdb23b693ff",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Com talheres e guardanapo biodegrad\u00e1veis",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 650000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "1c7be05e-1715-451b-babb-9802b38f1273"
+                            ],
+                            "stationItemId": {
+                                "id": "db786671-df8e-4fc4-bb20-d1507f65d8b6",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "86c63737-87d6-4ad1-a339-cbdb23b693ff",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "1c7be05e-1715-451b-babb-9802b38f1273",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Lasanha Siciliana",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 7,
+                        "nanos": 550000000
+                    },
+                    "quantity": 1,
+                    "note": "",
+                    "customerItemIds": [
+                        "658bed4c-10c3-4a4d-9e83-e9f5b2276ebc"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "a8eaae01-762c-4baf-95aa-f7e2aa99bfa3",
+                    "1c7be05e-1715-451b-babb-9802b38f1273"
+                ]
+            },
+            {
+                "skuId": {
+                    "id": "a8a40158-6880-409d-8b25-0069acb0fa05",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 7,
+                    "nanos": 550000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "c617cc47-3a04-4bcd-a145-65badb9b9f36",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 800000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "6990d64e-b85e-4f7b-aa60-618e54fc7861",
+                                "displayId": ""
+                            },
+                            "name": "Camadas de salame",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 800000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "94f95239-29c8-4441-9e1e-18ae3c95ed67",
+                            "menuCustomerItemId": "1e00101f-eed7-4b31-a9da-de2d6d41078e",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "dec9d7a1-a6f8-40de-b9fd-7421b648cc94",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "1e00101f-eed7-4b31-a9da-de2d6d41078e",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Camadas estilo napolitano",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Camadas de salame",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 800000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "94f95239-29c8-4441-9e1e-18ae3c95ed67"
+                            ],
+                            "stationItemId": {
+                                "id": "f2115adb-0bfe-43a3-b9ab-72b5350d67bc",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "1e00101f-eed7-4b31-a9da-de2d6d41078e",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "dec9d7a1-a6f8-40de-b9fd-7421b648cc94",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "1e00101f-eed7-4b31-a9da-de2d6d41078e",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "94f95239-29c8-4441-9e1e-18ae3c95ed67",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "80bdd25f-c062-49b9-9c31-960f75e5c651",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 2,
+                            "nanos": 0
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "12a0b7f6-9eaa-4b3b-b53f-7ab97c5e6a68",
+                                "displayId": ""
+                            },
+                            "name": "Lipton Ice Tea P\u00eassego Lata 33cl",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 2,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "04819318-d6e2-4ca5-a9a5-01864078fa8a",
+                            "menuCustomerItemId": "954a50b3-2564-4b60-8931-b428a438c61f",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "954a50b3-2564-4b60-8931-b428a438c61f",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Lipton Ice Tea P\u00eassego Lata 33cl",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 2,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "04819318-d6e2-4ca5-a9a5-01864078fa8a"
+                            ],
+                            "stationItemId": {
+                                "id": "9672458f-f714-4df8-9b72-46e4278f76b4",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "954a50b3-2564-4b60-8931-b428a438c61f",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "954a50b3-2564-4b60-8931-b428a438c61f",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "04819318-d6e2-4ca5-a9a5-01864078fa8a",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "a8ca7e34-55a5-4fe9-8d5a-6a6492d2a022",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 650000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "db875176-771d-4292-bd3e-36652cef8137",
+                                "displayId": ""
+                            },
+                            "name": "Com talheres e guardanapo biodegrad\u00e1veis",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 650000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "e779e1e9-aafc-4ffb-ada7-a94acca23ab8",
+                            "menuCustomerItemId": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Com talheres e guardanapo biodegrad\u00e1veis",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 650000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "e779e1e9-aafc-4ffb-ada7-a94acca23ab8"
+                            ],
+                            "stationItemId": {
+                                "id": "db786671-df8e-4fc4-bb20-d1507f65d8b6",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "4b7d416b-3576-464b-ac09-3d630495377d",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "1f156450-01e1-43bc-898c-1be50147499a",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "bca013b3-763c-4b71-80e7-a16668b724ae",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "e779e1e9-aafc-4ffb-ada7-a94acca23ab8",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Lasanha Bolonhesa Carne Assada",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 7,
+                        "nanos": 550000000
+                    },
+                    "quantity": 1,
+                    "note": "",
+                    "customerItemIds": [
+                        "12127e39-4286-44c0-a077-cc7aa74867e0"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "94f95239-29c8-4441-9e1e-18ae3c95ed67",
+                    "04819318-d6e2-4ca5-a9a5-01864078fa8a",
+                    "e779e1e9-aafc-4ffb-ada7-a94acca23ab8"
+                ]
+            }
+        ],
+        "startDate": "2022-07-13T21:47:34.491Z",
+        "completed": true,
+        "canceled": false,
+        "accepted": true,
+        "durationMinutes": 25,
+        "hideAfterMinutes": 60,
+        "expireAfterMinutes": 1
+    },
+    {
+        "courierName": null,
+        "platform": "boltfood",
+        "code": "1S19A",
+        "customerName": "Bernardo P.",
+        "customerPhone": "+351917466029",
+        "customerNote": "",
+        "customerPreviousOrders": null,
+        "items": [
+            {
+                "skuId": {
+                    "id": "d8a92808-ef64-48fe-a00b-2ff1ab129151",
+                    "displayId": ""
+                },
+                "skuPrice": {
+                    "currencyCode": "EUR",
+                    "units": 6,
+                    "nanos": 600000000
+                },
+                "itemModifiers": [
+                    {
+                        "skuId": {
+                            "id": "a0c54d7c-6377-4e16-9797-731eb0e48d4e",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 0
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "01481309-c232-43b6-9de9-5d444913ff47",
+                                "displayId": ""
+                            },
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "92c4e0f9-460e-4a61-aece-d2b98167c169",
+                            "menuCustomerItemId": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "ff5d3446-081e-4f5a-8c0a-e83551ede830",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "a8271e35-0ba4-472a-b63f-926f804be24d",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja bebida?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Sem bebida",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 0
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "92c4e0f9-460e-4a61-aece-d2b98167c169"
+                            ],
+                            "stationItemId": {
+                                "id": "a4c22b34-326d-4527-86ed-49c63c208b8e",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "ff5d3446-081e-4f5a-8c0a-e83551ede830",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "a8271e35-0ba4-472a-b63f-926f804be24d",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "74d8e770-409f-4f74-b057-6802812ea6db",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "c68dd14d-ff4d-4b37-9220-f53cc0f99515",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "92c4e0f9-460e-4a61-aece-d2b98167c169",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    },
+                    {
+                        "skuId": {
+                            "id": "9d03640e-d05c-4128-98a5-81eee3715f00",
+                            "displayId": ""
+                        },
+                        "skuPrice": {
+                            "currencyCode": "EUR",
+                            "units": 0,
+                            "nanos": 300000000
+                        },
+                        "orderItemDetail": {
+                            "externalId": {
+                                "id": "df15662e-1784-4aef-9122-577b1ca77589",
+                                "displayId": ""
+                            },
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 300000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemId": "a37a72fb-c6ea-43d4-b985-4b7039b59495",
+                            "menuCustomerItemId": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "ff5d3446-081e-4f5a-8c0a-e83551ede830",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "a8271e35-0ba4-472a-b63f-926f804be24d",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "photoUrl": "",
+                            "externalInstanceId": ""
+                        },
+                        "sectionName": "Deseja talheres e guardanapo?",
+                        "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                        "stationItemDetail": {
+                            "name": "Apenas caixa e saco",
+                            "salePrice": {
+                                "currencyCode": "EUR",
+                                "units": 0,
+                                "nanos": 300000000
+                            },
+                            "quantity": 1,
+                            "note": "",
+                            "customerItemIds": [
+                                "a37a72fb-c6ea-43d4-b985-4b7039b59495"
+                            ],
+                            "stationItemId": {
+                                "id": "1e3c2a35-1c91-44ba-80b5-f3950c4e999c",
+                                "displayId": ""
+                            },
+                            "menuCustomerItemId": {
+                                "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                "displayId": ""
+                            },
+                            "entityPath": {
+                                "pathNodes": [
+                                    {
+                                        "id": "42e89888-ab5e-4d47-96e9-d79854ef0574",
+                                        "type": "MENU"
+                                    },
+                                    {
+                                        "id": "ff5d3446-081e-4f5a-8c0a-e83551ede830",
+                                        "type": "CATEGORY"
+                                    },
+                                    {
+                                        "id": "a8271e35-0ba4-472a-b63f-926f804be24d",
+                                        "type": "ITEM"
+                                    },
+                                    {
+                                        "id": "0b6ae224-d41f-4538-a446-026da9238657",
+                                        "type": "MODIFIER_GROUP"
+                                    },
+                                    {
+                                        "id": "d7b7baec-cfbd-4ec9-98c9-48081d8b403b",
+                                        "type": "ITEM"
+                                    }
+                                ]
+                            },
+                            "stationItemStoreId": {
+                                "id": "b95815d0-4c01-38d5-a4e7-9520b95a1bd5",
+                                "displayId": ""
+                            },
+                            "stationOrderItemInstanceId": "a37a72fb-c6ea-43d4-b985-4b7039b59495",
+                            "stationItemType": "STATION_ITEM_TYPE_FULFILLING_CUSTOMER_ITEM",
+                            "derivedParentSkuId": ""
+                        },
+                        "modifierStationItemIds": []
+                    }
+                ],
+                "brandId": "8ea8689a-8d63-360a-b785-50dbc141d011",
+                "stationItemDetail": {
+                    "name": "Pappardelle al Ragu",
+                    "salePrice": {
+                        "currencyCode": "EUR",
+                        "units": 6,
+                        "nanos": 600000000
+                    },
+                    "quantity": 1,
+                    "note": "",
+                    "customerItemIds": [
+                        "2aa83f6d-8de1-4c39-8bf4-96c611fb7110"
+                    ]
+                },
+                "modifierStationItemIds": [
+                    "92c4e0f9-460e-4a61-aece-d2b98167c169",
+                    "a37a72fb-c6ea-43d4-b985-4b7039b59495"
+                ]
+            }
+        ],
+        "startDate": "2022-07-13T20:23:36.825Z",
+        "completed": null,
+        "canceled": false,
+        "accepted": true,
+        "durationMinutes": 25,
+        "hideAfterMinutes": 60,
+        "expireAfterMinutes": 1
+    }
+]
