@@ -150,13 +150,12 @@ logging.debug("Starting invoicing")
 
 me = singleton.SingleInstance()
 
+import menu
+
 invoices = sqlite3.connect("invoices.db")
 
 config = dotenv_values(".env")
 vendus_api_key = config["VENDUS_API_KEY"]
-
-if not vendus_api_key:
-    raise ValueError("Required VENDUS_API_KEY on .env file")
 
 invoice_config = {
     "type": "FR",

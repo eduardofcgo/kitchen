@@ -1,5 +1,7 @@
 import logging
 import json
+from pprint import pprint
+from dotenv import dotenv_values
 
 from otter import OtterClient
 
@@ -9,9 +11,6 @@ logger = logging.getLogger("otter")
 config = dotenv_values(".env")
 user = config["OTTER_USER"]
 password = config["OTTER_PASSWORD"]
-
-if not user or not password:
-    raise ValueError("Required OTTER_USER and OTTER_PASSWORD on .env file")
 
 with open("menu_query.graphql") as query_file:
     query = query_file.read()
@@ -36,4 +35,29 @@ for entity in menu["data"]["menuTemplate"]["entities"]:
     except KeyError:
         pass
 
-print(json.dumps(id_to_name, indent=4))
+print("All items")
+pprint(id_to_name)
+
+with open("invoicing.json") as invoice_mapping_file:
+    invoice_mapping = json.load(invoice_mapping_file)
+
+invoice_item_mapping = invoice_mapping["items"]
+ids_missing_from_invoicing = set(id_to_name) - set(invoice_item_mapping)
+
+in_invoicing = {
+    id_existing: {invoice_match: id_to_name.get(id_existing)}
+    for id_existing, invoice_match in invoice_item_mapping.items()
+}
+print("Matched items")
+pprint(in_invoicing)
+
+missing_from_invoicing = {
+    id_missing: id_to_name[id_missing] for id_missing in ids_missing_from_invoicing
+}
+
+print("Missing items")
+pprint(missing_from_invoicing)
+
+if missing_from_invoicing:
+    print("Not all menu items are invoiceable")
+    exit(code=1)
