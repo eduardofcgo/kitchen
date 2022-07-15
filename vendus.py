@@ -239,9 +239,9 @@ class VendusClient:
         response = self.session.post(self.document_url, json=invoice_resource)
         try:
             response.raise_for_status()
-        except requests.HTTPError as e:
+        except requests.HTTPError:
             logging.exception("Failed to invoice %s", response.text)
 
-            raise e
+            raise
 
         return response.json()

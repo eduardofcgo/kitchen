@@ -104,9 +104,6 @@ config = dotenv_values(".env")
 user = config["OTTER_USER"]
 password = config["OTTER_PASSWORD"]
 
-if not user or not password:
-    raise ValueError("Required OTTER_USER and OTTER_PASSWORD on .env file")
-
 logger.debug("Starting updating orders")
 
 client = OtterClient(logger, user, password)
@@ -121,6 +118,8 @@ while True:
         update_orders_file("orders.json", order_tickets)
 
         logger.debug("Orders updated")
+    except (SystemExit, KeyboardInterrupt):
+        raise
     except Exception:
         logger.exception("Failed to update orders. Will retry")
 

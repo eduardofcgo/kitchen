@@ -41,9 +41,6 @@ logging.debug("Starting manual order import")
 config = dotenv_values(".env")
 vendus_api_key = config["VENDUS_API_KEY"]
 
-if not vendus_api_key:
-    raise ValueError("Required VENDUS_API_KEY on .env file")
-
 invoicer = VendusClient(vendus_api_key)
 
 
@@ -71,6 +68,8 @@ while True:
 
             logging.debug("Exported %d manual invoices", len(orders))
 
+    except (SystemExit, KeyboardInterrupt):
+        raise
     except Exception:
         logging.exception("Unexpected failure. Will retry")
 
