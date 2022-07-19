@@ -11,6 +11,7 @@ from tendo import singleton
 from dotenv import dotenv_values
 
 from vendus import VendusClient, InvoiceItem, InvoiceModifier
+from stack import stack_items
 from nif import search as search_nif
 
 
@@ -31,13 +32,7 @@ def generate_invoice_items(ticket, invoice_item_mapping):
         ignore_item = item_reference is None
 
         if not ignore_item:
-            invoice_item = InvoiceItem(
-                reference=item_reference,
-                price=convert_google_money(item_price["units"], item_price["nanos"]),
-                quantity=item_quantity,
-                note=item_note,
-                modifiers=[],
-            )
+            invoice_modifiers = []
 
             for modifier in item["itemModifiers"]:
                 modifier_id = modifier["skuId"]["id"]
@@ -60,9 +55,15 @@ def generate_invoice_items(ticket, invoice_item_mapping):
                         note=modifier_note,
                     )
 
-                    invoice_item.modifiers.append(invoice_modifier)
+                    invoice_modifiers.append(invoice_modifier)
 
-            yield invoice_item
+            yield InvoiceItem(
+                reference=item_reference,
+                price=convert_google_money(item_price["units"], item_price["nanos"]),
+                quantity=item_quantity,
+                note=item_note,
+                modifiers=tuple(invoice_modifiers),
+            )
 
 
 def read_json(file_path):
@@ -156,7 +157,7 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
         client_id=client["id"],
         config=invoice_config,
         external_reference=code,
-        notes=notes
+        notes=notes,
     )
 
     return invoice
@@ -189,6 +190,7 @@ while True:
     try:
         invoice_mapping = read_json("invoicing.json")
         invoice_item_mapping = invoice_mapping["items"]
+        sold_seperatly_references = invoice_mapping["sold_seperatly"]
 
         tickets = read_json("orders.json")
 
@@ -205,23 +207,17 @@ while True:
 
             start_time = dateutil.parser.isoparse(start_time_iso).replace(tzinfo=None)
 
-            ordered_hours_ago = (
-                (datetime.utcnow() - start_time).microseconds / 1000 / 60 / 60
-            )
-
-            if (
-                accepted
-                and not canceled
-                and ordered_hours_ago < 1
-                and not was_delivery_invoiced(code)
-            ):
+            if accepted and not canceled and not was_delivery_invoiced(code):
                 try:
                     name = ticket["customerName"]
                     platform = ticket["platform"]
                     note = ticket["customerNote"]
                     price = ticket["price"]
 
-                    invoice_items = list(generate_invoice_items(ticket, invoice_item_mapping))
+                    invoice_items = stack_items(
+                        generate_invoice_items(ticket, invoice_item_mapping),
+                        sold_seperatly_references,
+                    )
 
                     nif = find_nif(ticket)
 
@@ -237,10 +233,12 @@ while True:
                         note,
                     )
 
-                    invoiced_ammount = float(invoice['amount_gross'])
+                    invoiced_ammount = float(invoice["amount_gross"])
 
                     if invoiced_ammount != price:
-                        sys.exit(f"Invoice ammount {invoiced_ammount} different from ticket price {price}")
+                        sys.exit(
+                            f"Invoice ammount {invoiced_ammount} different from ticket price {price}"
+                        )
 
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)

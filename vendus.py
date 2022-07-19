@@ -1,4 +1,4 @@
-from typing import List
+from typing import Tuple
 from dataclasses import dataclass, asdict
 from datetime import datetime
 import base64
@@ -6,7 +6,7 @@ import logging
 import requests
 
 
-@dataclass
+@dataclass(frozen=True, eq=True)
 class InvoiceModifier:
     reference: str
     price: float
@@ -14,16 +14,16 @@ class InvoiceModifier:
     note: str
 
 
-@dataclass
+@dataclass(frozen=True, eq=True)
 class InvoiceItem:
     reference: str
     price: float
     quantity: int
     note: str
-    modifiers: List[InvoiceModifier]
+    modifiers: Tuple[InvoiceModifier]
 
 
-@dataclass
+@dataclass(frozen=True, eq=True)
 class _VendusItem:
     reference: str
     gross_price: str
@@ -208,14 +208,18 @@ class VendusClient:
                 return None
 
     def _format_item_note(self, modifers):
-        return "\n".join(f"{modifier.quantity}x {modifier.reference}" for modifier in modifers)
+        return "\n".join(
+            f"{modifier.quantity}x {modifier.reference}" for modifier in modifers
+        )
 
     def _build_item(self, invoice_item):
         price = invoice_item.price
-        note = "\n".join([
-            self._format_item_note(invoice_item.modifiers),
-            invoice_item.note
-        ])
+        note = "\n".join(
+            filter(
+                bool,
+                [self._format_item_note(invoice_item.modifiers), invoice_item.note],
+            )
+        )
 
         for modifier in invoice_item.modifiers:
             price += modifier.price * modifier.quantity
@@ -224,7 +228,7 @@ class VendusClient:
             reference=invoice_item.reference,
             gross_price=str(round(price, 2)),
             qty=invoice_item.quantity,
-            text=note,
+            text=note if note else None,
         )
 
     def invoice(

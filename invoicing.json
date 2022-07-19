@@ -14,9 +14,29 @@
     "bdcdb69f-c546-4471-adfc-ed9f355979ee": "COLA",
     "a8ca7e34-55a5-4fe9-8d5a-6a6492d2a022": "TALHERES",
     "d8a92808-ef64-48fe-a00b-2ff1ab129151": "RAGU",
-    "9d03640e-d05c-4128-98a5-81eee3715f00": null,
+    "9d03640e-d05c-4128-98a5-81eee3715f00": "BOX",
     "a0c54d7c-6377-4e16-9797-731eb0e48d4e": null,
     "d266a7b6-ba1c-41f8-8604-c2bc1f683c9d": "PELE",
-    "80bdd25f-c062-49b9-9c31-960f75e5c651": "PESS"
-  }
+    "80bdd25f-c062-49b9-9c31-960f75e5c651": "PESS",
+    "1bbd6f1f-d7b7-442a-a8ec-3e5bd9159633": "TOP_PARM",
+    "2bfe1b6d-28fb-4b4a-a018-f66907f94d3c": "CONF_MASS",
+    "2c298f2e-6345-484d-9499-0773ccaf7d3f": "TOP_ROSM",
+    "4824c84d-b97d-4f9c-a65c-2319e681f3da": null,
+    "5864d4d5-ce18-4c75-9754-8e76e1bc0e2f": "CUSTOM",
+    "708b886c-096d-44bf-9e4e-8b7bf30dcc91": "ADD_OVO",
+    "73a5099e-f07e-4705-b879-89783919c39a": "EXTRA_PARM",
+    "7e63c7be-992e-4057-83e6-c27df882e939": "CONF_RAGU",
+    "87c2cc38-5559-4dc3-bd7d-7c28e3ab9158": "CONF_BERINJ",
+    "a82f03be-3f13-4cfc-a6a7-02d9c9968afc": "PEPSI_MAX",
+    "aedbe699-4cfb-4e30-8356-aeb2e0954af5": null,
+    "c617cc47-3a04-4bcd-a145-65badb9b9f36": "ADD_SALAMI",
+    "c841328e-85fd-45bb-9d95-eb4b343f9b36": "CONF_SOJA",
+    "d3486575-1f49-4a7f-96ea-f6d6a42d7dfb": "EXTRA_RAGU",
+    "d5e8e1e6-1638-481a-a6de-282abd33f0da": null,
+    "dca31a03-534b-47c1-9253-418161d335fc": "CONF_RAGU",
+    "de5538b1-8950-426b-87ab-70add12b6327": "ADD_MOZ",
+    "f4b19a3a-48ef-4319-9889-705addb0952d": "ADD_RICOTTA",
+    "fb26b804-fc20-4659-9acc-e0745e0affa5": "TOP_MANG"
+  },
+  "sold_seperatly": ["PESS", "SAGRES", "COLA", "PEPSI_MAX", "PELE", "TALHERES"]
 }
