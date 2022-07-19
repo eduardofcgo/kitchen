@@ -46,16 +46,6 @@ class OtterClient:
         if not self.access_token:
             raise ValueError("Not logged in")
 
-    def _get_resource(self, response):
-        if response.status_code == 403:
-            self.refresh_token_strategy.refresh()
-
-            return get_orders(facility_id, limit)
-
-        response.raise_for_status()
-
-        return response.json()
-
     def login(self):
         credentials = {"email": self.email, "password": self.password}
 
@@ -69,21 +59,24 @@ class OtterClient:
 
         self.logger.debug("Logged in")
 
-    def get_orders_history(self, facility_id, limit):
+    def get_orders(self, facility_id, limit=75):
         self._assert_logged_in()
 
         params = {"facility_id": facility_id, "limit": limit}
-        response = self.session.get(self.orders_history_url, params=params)
 
-        return self._get_resource(response)
+        def request_orders():
+            return self.session.get(self.orders_url, params=params)
 
-    def get_orders(self, facility_id, limit):
-        self._assert_logged_in()
+        response = request_orders()
 
-        params = {"facility_id": facility_id, "limit": limit}
-        response = self.session.get(self.orders_url, params=params)
+        if response.status_code == 403:
+            self.refresh_token_strategy.refresh()
 
-        return self._get_resource(response)
+            response = request_orders()
+
+        response.raise_for_status()
+
+        return response.json()
 
     def query(self, operation_name, variables, query):
         self._assert_logged_in()
@@ -91,5 +84,6 @@ class OtterClient:
         data = {"operationName": operation_name, "variables": variables, "query": query}
 
         response = self.session.post(self.graphql_url, json=data)
+        response.raise_for_status()
 
-        return self._get_resource(response)
+        return response.json()
