@@ -7,6 +7,10 @@ from dotenv import dotenv_values
 from otter import OtterClient
 
 
+def convert_google_money(units, nanos):
+    return round(units + nanos * 10 ** (-9), 2)
+
+
 def create_order_ticket(order):
     created_date = order["createdAt"]
     custumer_order = order["customerOrder"]
@@ -16,6 +20,8 @@ def create_order_ticket(order):
     ofo_status = custumer_order["ofoStatus"]
     custumer_name = custumer_order["customer"]["displayName"]
     custumer_note = custumer_order["customerNote"]
+    customer_payment = custumer_order["customerPayment"]["total"]
+    price = convert_google_money(customer_payment["units"], customer_payment["nanos"])
 
     if ofo != "ubereats":
         custumer_phone_number = custumer_order["customer"]["phone"]
@@ -27,9 +33,8 @@ def create_order_ticket(order):
     except KeyError:
         customer_previous_orders = None
 
-    customer_items = custumer_order["stationOrders"][0]["menuReconciledItemsContainer"][
-        "items"
-    ]
+    station_order = custumer_order["stationOrders"][0]
+    customer_items = station_order["menuReconciledItemsContainer"]["items"]
     readiness = custumer_order["readinessState"]
     confirmation_info = custumer_order["confirmationInfo"]
     items = custumer_order["stationOrders"]
@@ -74,6 +79,7 @@ def create_order_ticket(order):
         "customerPhone": custumer_phone_number,
         "customerNote": custumer_note,
         "customerPreviousOrders": customer_previous_orders,
+        "price": price,
         "items": customer_items,
         "startDate": accepted_date,
         "completed": is_completed,
@@ -90,8 +96,8 @@ def update_orders_file(file_path, refreshed_orders):
         orders_file.write(json.dumps(refreshed_orders, indent=4))
 
 
-def get_order_tickets(client, facility_id, limit):
-    orders = client.get_orders(facility_id, limit)["orders"]
+def get_order_tickets(client, facility_id):
+    orders = client.get_orders(facility_id)["orders"]
     order_tickets = list(map(create_order_ticket, orders))
 
     return order_tickets
@@ -109,12 +115,11 @@ logger.debug("Starting updating orders")
 client = OtterClient(logger, user, password)
 client.login()
 
-while True:
-    facility_id = "ec411c9b-34b2-391d-9d61-fbc9ef40fc8c"
-    limit = 75
+facility_id = "ec411c9b-34b2-391d-9d61-fbc9ef40fc8c"
 
+while True:
     try:
-        order_tickets = get_order_tickets(client, facility_id, limit)
+        order_tickets = get_order_tickets(client, facility_id)
         update_orders_file("orders.json", order_tickets)
 
         logger.debug("Orders updated")
