@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from typing import List
+from dataclasses import dataclass, asdict
 from datetime import datetime
 import base64
 import logging
@@ -6,9 +7,28 @@ import requests
 
 
 @dataclass
-class InvoiceItem:
-    quantity: int
+class InvoiceModifier:
     reference: str
+    price: float
+    quantity: int
+    note: str
+
+
+@dataclass
+class InvoiceItem:
+    reference: str
+    price: float
+    quantity: int
+    note: str
+    modifiers: List[InvoiceModifier]
+
+
+@dataclass
+class _VendusItem:
+    reference: str
+    gross_price: str
+    qty: int
+    text: str
 
 
 class VendusClient:
@@ -40,14 +60,12 @@ class VendusClient:
 
         try:
             response.raise_for_status()
-        except requests.HTTPError as e:
-            logging.exception("Failed to search client %s", response.text)
+        except requests.HTTPError:
+            logging.error("Failed to search client %s", response.text)
 
-            raise e
+            raise
 
-        clients_resource = response.json()
-
-        return clients_resource
+        return response.json()
 
     def create_client(
         self, *, nif=None, name=None, address=None, mobile=None, external_reference=None
@@ -113,41 +131,48 @@ class VendusClient:
         response = self.session.get(resource_url)
         try:
             response.raise_for_status()
-        except requests.HTTPError as e:
-            logging.exception("Failed to obtain invoice details %s", response.text)
+        except requests.HTTPError:
+            logging.error("Failed to obtain invoice details %s", response.text)
 
-            raise e
+            raise
 
         invoice_resource = response.json()
         self._parse_invoice(invoice_resource)
 
         return invoice_resource
 
-    def _guess_client(self, nif, name, address, mobile):
+    def _find_client_by_name(self, name):
         def cannonical_name(client_name):
             return client_name.replace(".", "")
 
+        clients = self.search_client(name=name)
+
+        clients_without_unique_identifiers = [
+            client
+            for client in clients
+            if not client["fiscal_id"] and not client["mobile"]
+        ]
+        clients_with_same_name = [
+            client
+            for client in clients_without_unique_identifiers
+            if cannonical_name(client["name"]) == cannonical_name(name)
+        ]
+
+        return clients_with_same_name
+
+    def guess_client(self, nif, mobile, name):
         if nif:
             clients = self.search_client(nif=nif)
             if clients:
                 logging.debug("Found existing client for nif %s", nif)
                 return clients[0]
+
             else:
-                client = self.create_client(
-                    nif=nif,
-                    name=name,
-                    address=address,
-                    mobile=mobile,
-                    external_reference=mobile,
-                )
-
-                logging.debug("Created client for nif %s", nif)
-
-                return client
+                logging.debug("Unable to find client for nif %s", nif)
+                return None
 
         elif mobile:
             clients = self.search_client(external_reference=mobile)
-
             if len(clients) == 1:
                 logging.debug("Found existing client for mobile %s", mobile)
                 return clients[0]
@@ -156,79 +181,68 @@ class VendusClient:
                 raise ValueError("Found more than one client for mobile %s", mobile)
 
             elif not clients:
-                client = self.create_client(
-                    nif=nif,
-                    name=name,
-                    address=address,
-                    mobile=mobile,
-                    external_reference=mobile,
-                )
-                logging.debug(
-                    "Created new client for mobile %s with %s %s", mobile, name, address
-                )
-
-                return client
+                logging.debug("Unable to find client for mobile %s", mobile)
+                return None
 
         elif name:
-            clients = self.search_client(name=name)
-            possible_matches = [
-                client
-                for client in clients
-                if not client["fiscal_id"]
-                and not client["mobile"]
-                and cannonical_name(client["name"]) == cannonical_name(name)
-            ]
-
-            if len(possible_matches) == 1:
-                client = possible_matches[0]
-                logging.debug("Found one match by name %s %s", name, client["id"])
-
+            clients = self._find_client_by_name(name)
+            if len(clients) == 1:
+                client = clients[0]
+                logging.debug("Found one client by name %s %s", name, client["id"])
                 return client
 
-            if len(possible_matches) > 1:
-                client = possible_matches[0]
+            if len(clients) > 1:
+                client = clients[0]
                 logging.debug(
-                    "Found more than one match by name %s. Will choose first %s",
+                    "Found more than one client by name %s. Will choose first %s",
                     name,
                     client["id"],
                 )
-
                 return client
 
-            if not possible_matches:
+            if not clients:
                 logging.debug(
-                    "Not found any matches by name. Will create client %s %s",
+                    "Not found any client with name %s",
                     name,
-                    address,
                 )
-                return self.create_client(name=name, address=address)
+                return None
 
-    def _build_invoice_items(self, items):
-        return [{"qty": item.quantity, "reference": item.reference} for item in items]
+    def _format_item_note(self, modifers):
+        return "\n".join(f"{modifier.quantity}x {modifier.reference}" for modifier in modifers)
+
+    def _build_item(self, invoice_item):
+        price = invoice_item.price
+        note = "\n".join([
+            self._format_item_note(invoice_item.modifiers),
+            invoice_item.note
+        ])
+
+        for modifier in invoice_item.modifiers:
+            price += modifier.price * modifier.quantity
+
+        return _VendusItem(
+            reference=invoice_item.reference,
+            gross_price=str(round(price, 2)),
+            qty=invoice_item.quantity,
+            text=note,
+        )
 
     def invoice(
         self,
-        items,
+        invoice_items,
         *,
         config=None,
-        nif=None,
+        client_id=None,
         external_reference=None,
         notes=None,
-        name=None,
-        address=None,
-        mobile=None,
     ):
         invoice_resource = {
             **(config or {}),
-            "items": self._build_invoice_items(items),
+            "items": [asdict(self._build_item(item)) for item in invoice_items],
         }
 
-        client = self._guess_client(nif, name, address, mobile)
-
-        if not client:
-            raise ValueError("Client not found, unable to invoice")
-
-        invoice_resource["client"] = {"id": client["id"]}
+        if client_id:
+            invoice_resource["client"] = {"id": client_id}
 
         if external_reference:
             invoice_resource["external_reference"] = external_reference
@@ -240,7 +254,7 @@ class VendusClient:
         try:
             response.raise_for_status()
         except requests.HTTPError:
-            logging.exception("Failed to invoice %s", response.text)
+            logging.error("Failed to invoice %s", response.text)
 
             raise
 

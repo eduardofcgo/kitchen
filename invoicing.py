@@ -10,48 +10,59 @@ from json.decoder import JSONDecodeError
 from tendo import singleton
 from dotenv import dotenv_values
 
-from vendus import VendusClient, InvoiceItem
+from vendus import VendusClient, InvoiceItem, InvoiceModifier
 from nif import search as search_nif
 
 
-def generate_invoice_references(ticket, invoice_item_mapping):
+def convert_google_money(units, nanos):
+    return round(units + nanos * 10 ** (-9), 2)
+
+
+def generate_invoice_items(ticket, invoice_item_mapping):
     for item in ticket["items"]:
         item_id = item["skuId"]["id"]
         item_details = item["stationItemDetail"]
+        item_price = item_details["salePrice"]
         item_quantity = item_details["quantity"]
         item_name = item_details["name"]
+        item_note = item_details["note"]
 
-        invoice_item = invoice_item_mapping[item_id]
-        ignore_item = invoice_item is None
+        item_reference = invoice_item_mapping[item_id]
+        ignore_item = item_reference is None
 
         if not ignore_item:
-            for _ in range(item_quantity):
-                yield invoice_item
+            invoice_item = InvoiceItem(
+                reference=item_reference,
+                price=convert_google_money(item_price["units"], item_price["nanos"]),
+                quantity=item_quantity,
+                note=item_note,
+                modifiers=[],
+            )
 
-        for maybe_modifier in item["itemModifiers"]:
+            for modifier in item["itemModifiers"]:
+                modifier_id = modifier["skuId"]["id"]
+                modifier_details = modifier["orderItemDetail"]
+                modifier_price = modifier_details["salePrice"]
+                modifier_quantity = modifier_details["quantity"]
+                modifier_name = modifier_details["name"]
+                modifier_note = modifier_details["note"]
 
-            # TODO: check modifier
+                modifier_reference = invoice_item_mapping[modifier_id]
+                ignore_modifier = modifier_reference is None
 
-            modifier_id = maybe_modifier["skuId"]["id"]
-            modifier_details = maybe_modifier["orderItemDetail"]
-            modifier_quantity = modifier_details["quantity"]
-            modifier_name = modifier_details["name"]
+                if not ignore_modifier:
+                    invoice_modifier = InvoiceModifier(
+                        reference=modifier_reference,
+                        price=convert_google_money(
+                            modifier_price["units"], modifier_price["nanos"]
+                        ),
+                        quantity=modifier_quantity,
+                        note=modifier_note,
+                    )
 
-            modifier_invoice_item = invoice_item_mapping[modifier_id]
-            ignore_modifier = modifier_invoice_item is None
+                    invoice_item.modifiers.append(invoice_modifier)
 
-            if not ignore_modifier:
-                for _ in range(modifier_quantity):
-                    for _ in range(item_quantity):
-                        yield modifier_invoice_item
-
-
-def create_invoice_items(invoice_references):
-    counter = Counter(invoice_references)
-
-    return [
-        InvoiceItem(quantity, reference) for (reference, quantity) in counter.items()
-    ]
+            yield invoice_item
 
 
 def read_json(file_path):
@@ -125,20 +136,27 @@ def import_manual_invoices():
                 save_invoice(invoice_id, None, talao)
 
 
-def invoice_delivery(items, config, code, platform, nif, name, phone_number):
-    notes = f"{name} ({platform})"
+def invoice_delivery(items, code, platform, nif, name, phone_number, note):
+    notes = f"{name} ({platform}) {note}"
 
     placeholder_address = "Address"
 
+    client = invoicer.guess_client(nif, phone_number, name)
+    if not client:
+        client = invoicer.create_client(
+            nif=nif,
+            name=name,
+            address=placeholder_address,
+            mobile=phone_number,
+            external_reference=phone_number,
+        )
+
     invoice = invoicer.invoice(
         items,
-        config=config,
+        client_id=client["id"],
+        config=invoice_config,
         external_reference=code,
-        nif=nif,
-        notes=notes,
-        name=name,
-        address=placeholder_address,
-        mobile=phone_number,
+        notes=notes
     )
 
     return invoice
@@ -149,8 +167,6 @@ logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 logging.debug("Starting invoicing")
 
 me = singleton.SingleInstance()
-
-import menu
 
 invoices = sqlite3.connect("invoices.db")
 
@@ -202,25 +218,29 @@ while True:
                 try:
                     name = ticket["customerName"]
                     platform = ticket["platform"]
+                    note = ticket["customerNote"]
+                    price = ticket["price"]
 
-                    invoice_references = generate_invoice_references(
-                        ticket, invoice_item_mapping
-                    )
+                    invoice_items = list(generate_invoice_items(ticket, invoice_item_mapping))
 
                     nif = find_nif(ticket)
-                    items = create_invoice_items(invoice_references)
 
-                    logging.debug("Will invoice %s items %s", code, items)
+                    logging.debug("Will invoice %s items %s", code, invoice_items)
 
                     invoice = invoice_delivery(
-                        items,
-                        invoice_config,
+                        invoice_items,
                         code,
                         platform,
                         nif,
                         name,
                         phone_number,
+                        note,
                     )
+
+                    invoiced_ammount = float(invoice['amount_gross'])
+
+                    if invoiced_ammount != price:
+                        sys.exit(f"Invoice ammount {invoiced_ammount} different from ticket price {price}")
 
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)
@@ -236,7 +256,6 @@ while True:
                         sys.exit("Exited to prevent invoice duplication")
 
                     logging.debug("Saved invoice %s - %s", code, invoice_id)
-
                 except KeyError as e:
                     logging.error(
                         "Menu item %s not found on invoicer, please update invoicing.json",
