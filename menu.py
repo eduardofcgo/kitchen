@@ -55,9 +55,11 @@ missing_from_invoicing = {
     id_missing: id_to_name[id_missing] for id_missing in ids_missing_from_invoicing
 }
 
-print("Missing items")
-pprint(missing_from_invoicing)
-
 if missing_from_invoicing:
+    print("Missing items")
+    pprint(missing_from_invoicing)
+
     print("Not all menu items are invoiceable")
     exit(code=1)
+else:
+    print("Every item is invoiceable")
