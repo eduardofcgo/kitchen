@@ -49,13 +49,11 @@ while True:
 
                 output_str = completed_process.stdout.decode("utf-8")
 
-                print_id = extract_print_id(output_str)
-                if not print_id:
-                    sys.exit(
-                        "Failed to extract print_id. Will exit to prevent duplicated printing"
-                    )
-
                 try:
+                    print_id = extract_print_id(output_str)
+                    if not print_id:
+                        raise ValueError("Unable to extract print_id")
+
                     cursor.execute(
                         "update invoice set print_id = (?) where id = (?)",
                         (
