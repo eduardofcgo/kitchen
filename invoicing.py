@@ -141,6 +141,8 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
 
     client = invoicer.guess_client(nif, phone_number, name)
     if not client:
+        logging.debug("Client not found, will create client %s %s %s", nif, name, phone_number)
+
         client = invoicer.create_client(
             nif=nif,
             name=name,
@@ -149,9 +151,15 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
             external_reference=phone_number,
         )
 
+        logging.debug("Client created")
+
+    client_id = client["id"]
+
+    logging.debug("Will invoice for client %s", client_id)
+
     invoice = invoicer.invoice(
         items,
-        client_id=client["id"],
+        client_id=client_id,
         config=invoice_config,
         external_reference=code,
         notes=notes,
@@ -230,12 +238,10 @@ while True:
                         note,
                     )
 
-                    invoiced_ammount = float(invoice["amount_gross"])
+                    invoiced_ammount = round(float(invoice["amount_gross"]), 2)
 
                     if invoiced_ammount != price:
-                        sys.exit(
-                            f"Invoice ammount {invoiced_ammount} different from ticket price {price}"
-                        )
+                        raise ValueError(f"Invoice ammount {invoiced_ammount} different from ticket price {price}")
 
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)
@@ -251,6 +257,11 @@ while True:
                         sys.exit("Exited to prevent invoice duplication")
 
                     logging.debug("Saved invoice %s - %s", code, invoice_id)
+                except ValueError:
+                    logging.exception("Inconsistent invoice data")
+                    sys.exit(
+                        "Will exit to prevent further invoice mistakes"
+                    )
                 except KeyError as e:
                     logging.error(
                         "Menu item %s not found on invoicer, please update invoicing.json",
