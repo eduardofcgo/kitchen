@@ -1,6 +1,7 @@
 import unittest
 from collections import Counter
 from operator import attrgetter
+from dataclasses import replace
 
 from vendus import InvoiceItem, InvoiceModifier
 
@@ -21,11 +22,8 @@ def stack_items(items, sold_seperatly_references):
 
                 stacked_items.append(sold_seperatly_item)
 
-        item_without_sold_separately_modifiers = InvoiceItem(
-            reference=item.reference,
-            price=item.price,
-            quantity=item.quantity,
-            note=item.note,
+        item_without_sold_separately_modifiers = replace(
+            item,
             modifiers=tuple(
                 modifer
                 for modifier in item.modifiers
@@ -40,26 +38,16 @@ def stack_items(items, sold_seperatly_references):
     for item in stacked_items:
         for _ in range(item.quantity):
             expanded_items.append(
-                InvoiceItem(
-                    reference=item.reference,
-                    price=item.price,
+                replace(
+                    item,
                     quantity=1,
-                    note=item.note,
-                    modifiers=item.modifiers,
                 )
             )
 
     items_counter = Counter(expanded_items)
 
     stacked_items = [
-        InvoiceItem(
-            reference=item.reference,
-            price=item.price,
-            quantity=count,
-            note=item.note,
-            modifiers=item.modifiers,
-        )
-        for item, count in items_counter.items()
+        replace(item, quantity=count) for item, count in items_counter.items()
     ]
 
     return sorted(stacked_items, key=attrgetter("reference"))
