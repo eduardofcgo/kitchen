@@ -4,11 +4,7 @@ from time import sleep
 import json
 from dotenv import dotenv_values
 
-from otter import OtterClient
-
-
-def convert_google_money(units, nanos):
-    return round(units + nanos * 10 ** (-9), 2)
+from otter import OtterClient, convert_google_money
 
 
 def create_order_ticket(order):

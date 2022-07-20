@@ -10,13 +10,10 @@ from json.decoder import JSONDecodeError
 from tendo import singleton
 from dotenv import dotenv_values
 
+from otter import convert_google_money
 from vendus import VendusClient, InvoiceItem, InvoiceModifier
 from stack import stack_items
 from nif import search as search_nif
-
-
-def convert_google_money(units, nanos):
-    return round(units + nanos * 10 ** (-9), 2)
 
 
 def generate_invoice_items(ticket, invoice_item_mapping):

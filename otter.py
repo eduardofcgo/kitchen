@@ -2,6 +2,10 @@ import requests
 from requests.adapters import HTTPAdapter, Retry
 
 
+def convert_google_money(units, nanos):
+    return round(units + nanos * 10 ** (-9), 2)
+
+
 class RefreshTokenStrategy:
     def __init__(self, logger, client):
         self.logger = logger
