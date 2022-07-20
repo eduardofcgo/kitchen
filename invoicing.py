@@ -141,7 +141,9 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
 
     client = invoicer.guess_client(nif, phone_number, name)
     if not client:
-        logging.debug("Client not found, will create client %s %s %s", nif, name, phone_number)
+        logging.debug(
+            "Client not found, will create client %s %s %s", nif, name, phone_number
+        )
 
         client = invoicer.create_client(
             nif=nif,
@@ -151,7 +153,7 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
             external_reference=phone_number,
         )
 
-        logging.debug("Client created")
+        logging.debug("Client created with id %d", client["id"])
 
     client_id = client["id"]
 
@@ -195,7 +197,7 @@ while True:
     try:
         invoice_mapping = read_json("invoicing.json")
         invoice_item_mapping = invoice_mapping["items"]
-        sold_seperatly_references = invoice_mapping["sold_seperatly"]
+        sold_seperatly_references = frozenset(invoice_mapping["sold_seperatly"])
 
         tickets = read_json("orders.json")
 
@@ -241,7 +243,9 @@ while True:
                     invoiced_ammount = round(float(invoice["amount_gross"]), 2)
 
                     if invoiced_ammount != price:
-                        raise ValueError(f"Invoice ammount {invoiced_ammount} different from ticket price {price}")
+                        raise ValueError(
+                            f"Invoice ammount {invoiced_ammount} different from ticket price {price}"
+                        )
 
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)
@@ -259,9 +263,7 @@ while True:
                     logging.debug("Saved invoice %s - %s", code, invoice_id)
                 except ValueError:
                     logging.exception("Inconsistent invoice data")
-                    sys.exit(
-                        "Will exit to prevent further invoice mistakes"
-                    )
+                    sys.exit("Will exit to prevent further invoice mistakes")
                 except KeyError as e:
                     logging.error(
                         "Menu item %s not found on invoicer, please update invoicing.json",
