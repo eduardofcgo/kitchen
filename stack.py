@@ -25,7 +25,7 @@ def stack_items(items, sold_seperatly_references):
         item_without_sold_separately_modifiers = replace(
             item,
             modifiers=tuple(
-                modifer
+                modifier
                 for modifier in item.modifiers
                 if modifier.reference not in sold_seperatly_references
             ),
