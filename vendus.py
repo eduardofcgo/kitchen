@@ -216,7 +216,7 @@ class VendusClient:
         price = invoice_item.price
         note = "\n".join(
             filter(
-                bool,
+                is_not_empty := bool,
                 [self._format_item_note(invoice_item.modifiers), invoice_item.note],
             )
         )
