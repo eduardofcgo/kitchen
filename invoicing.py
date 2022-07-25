@@ -209,13 +209,13 @@ while True:
 
             start_time_iso = ticket.get("startDate")
 
-            if not start_time_iso:
-                raise ValueError("Expects startDate on order")
-
-            start_time = dateutil.parser.isoparse(start_time_iso).replace(tzinfo=None)
-
             if accepted and not canceled and not was_delivery_invoiced(code):
                 try:
+                    if not start_time_iso:
+                        raise ValueError("Expects startDate on order")
+
+                    start_time = dateutil.parser.isoparse(start_time_iso).replace(tzinfo=None)
+
                     name = ticket["customerName"]
                     platform = ticket["platform"]
                     note = ticket["customerNote"]
