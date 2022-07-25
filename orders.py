@@ -19,7 +19,7 @@ def create_order_ticket(order):
     customer_payment = custumer_order["customerPayment"]["total"]
     price = convert_google_money(customer_payment["units"], customer_payment["nanos"])
 
-    if ofo != "ubereats":
+    if ofo in {"ubereats", "ubereats-api"}:
         custumer_phone_number = custumer_order["customer"]["phone"]
     else:
         custumer_phone_number = None
@@ -123,5 +123,7 @@ while True:
         raise
     except Exception:
         logger.exception("Failed to update orders. Will retry")
+
+        client.login()
 
     sleep(3)
