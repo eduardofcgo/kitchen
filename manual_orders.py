@@ -63,10 +63,9 @@ while True:
                 order = create_order(invoice)
                 orders.append(order)
 
-        if orders:
-            write_orders(orders)
+        write_orders(orders)
 
-            logging.debug("Exported %d manual invoices", len(orders))
+        logging.debug("Exported %d manual invoices", len(orders))
 
     except (SystemExit, KeyboardInterrupt):
         raise
