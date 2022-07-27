@@ -33,10 +33,14 @@
     "c841328e-85fd-45bb-9d95-eb4b343f9b36": "CONF_SOJA",
     "d3486575-1f49-4a7f-96ea-f6d6a42d7dfb": "EXTRA_RAGU",
     "d5e8e1e6-1638-481a-a6de-282abd33f0da": null,
-    "dca31a03-534b-47c1-9253-418161d335fc": "CONF_RAGU",
+    "dca31a03-534b-47c1-9253-418161d335fc": "ADD_PARM",
     "de5538b1-8950-426b-87ab-70add12b6327": "ADD_MOZ",
     "f4b19a3a-48ef-4319-9889-705addb0952d": "ADD_RICOTTA",
-    "fb26b804-fc20-4659-9acc-e0745e0affa5": "TOP_MANG"
+    "fb26b804-fc20-4659-9acc-e0745e0affa5": "TOP_MANG",
+    "66357bbd-4d6c-4faa-b368-d33ac12fe193": "NO_PARM",
+    "ad79ffd8-6cb3-496e-84cb-9dab08a401f6": "ADD_PARM",
+    "8a1d8392-15a2-47e3-bead-45cf5ca3eb37": "NO_PARM",
+    "d210bc43-3791-467d-abe8-4c428b0c875a": "TOP_MOZ"
   },
   "sold_seperatly": ["PESS", "SAGRES", "COLA", "PEPSI_MAX", "PELE", "TALHERES"]
 }
