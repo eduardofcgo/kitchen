@@ -164,36 +164,36 @@ class VendusClient:
         if nif:
             clients = self.search_client(nif=nif)
             if clients:
-                logging.debug("Found existing client for nif %s", nif)
+                logging.info("Found existing client for nif %s", nif)
                 return clients[0]
 
             else:
-                logging.debug("Unable to find client for nif %s", nif)
+                logging.info("Unable to find client for nif %s", nif)
                 return None
 
         elif mobile:
             clients = self.search_client(external_reference=mobile)
             if len(clients) == 1:
-                logging.debug("Found existing client for mobile %s", mobile)
+                logging.info("Found existing client for mobile %s", mobile)
                 return clients[0]
 
             if len(clients) > 1:
                 raise ValueError("Found more than one client for mobile %s", mobile)
 
             elif not clients:
-                logging.debug("Unable to find client for mobile %s", mobile)
+                logging.info("Unable to find client for mobile %s", mobile)
                 return None
 
         elif name:
             clients = self._find_client_by_name(name)
             if len(clients) == 1:
                 client = clients[0]
-                logging.debug("Found one client by name %s %s", name, client["id"])
+                logging.info("Found one client by name %s %s", name, client["id"])
                 return client
 
             if len(clients) > 1:
                 client = clients[0]
-                logging.debug(
+                logging.info(
                     "Found more than one client by name %s. Will choose first %s",
                     name,
                     client["id"],
@@ -201,7 +201,7 @@ class VendusClient:
                 return client
 
             if not clients:
-                logging.debug(
+                logging.info(
                     "Not found any client with name %s",
                     name,
                 )

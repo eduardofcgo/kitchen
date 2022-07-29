@@ -123,7 +123,7 @@ def import_manual_invoices():
             invoice_id = invoice["id"]
 
             if not was_invoice_saved(invoice_id):
-                logging.debug(
+                logging.info(
                     "Found manual invoice %s %s %s",
                     invoice_id,
                     invoice["amount_gross"],
@@ -141,7 +141,7 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
 
     client = invoicer.guess_client(nif, phone_number, name)
     if not client:
-        logging.debug(
+        logging.info(
             "Client not found, will create client %s %s %s", nif, name, phone_number
         )
 
@@ -153,11 +153,11 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
             external_reference=phone_number,
         )
 
-        logging.debug("Client created with id %d", client["id"])
+        logging.info("Client created with id %d", client["id"])
 
     client_id = client["id"]
 
-    logging.debug("Will invoice for client %s", client_id)
+    logging.info("Will invoice for client %s", client_id)
 
     invoice = invoicer.invoice(
         items,
@@ -170,9 +170,9 @@ def invoice_delivery(items, code, platform, nif, name, phone_number, note):
     return invoice
 
 
-logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
+logging.basicConfig(format="%(asctime)s %(message)s", level=logging.INFO)
 
-logging.debug("Starting invoicing")
+logging.info("Starting invoicing")
 
 me = singleton.SingleInstance()
 
@@ -214,7 +214,9 @@ while True:
                     if not start_time_iso:
                         raise ValueError("Expects startDate on order")
 
-                    start_time = dateutil.parser.isoparse(start_time_iso).replace(tzinfo=None)
+                    start_time = dateutil.parser.isoparse(start_time_iso).replace(
+                        tzinfo=None
+                    )
 
                     name = ticket["customerName"]
                     platform = ticket["platform"]
@@ -228,7 +230,7 @@ while True:
 
                     nif = find_nif(ticket)
 
-                    logging.debug("Will invoice %s items %s", code, invoice_items)
+                    logging.info("Will invoice %s items %s", code, invoice_items)
 
                     invoice = invoice_delivery(
                         invoice_items,
@@ -250,7 +252,7 @@ while True:
                     invoice_id = invoice["id"]
                     talao = invoicer.get_talao(invoice_id)
 
-                    logging.debug("Invoiced %s - %s", code, invoice_id)
+                    logging.info("Invoiced %s - %s", code, invoice_id)
 
                     try:
                         save_invoice(invoice_id, code, talao)
@@ -260,7 +262,7 @@ while True:
                         )
                         sys.exit("Exited to prevent invoice duplication")
 
-                    logging.debug("Saved invoice %s - %s", code, invoice_id)
+                    logging.info("Saved invoice %s - %s", code, invoice_id)
                 except ValueError:
                     logging.exception("Inconsistent invoice data")
                     sys.exit("Will exit to prevent further invoice mistakes")

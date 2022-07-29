@@ -31,7 +31,7 @@ class OtterClient:
         self.version = "dd939fbb7062766a7fae374d26620c47b47b6708"
 
         self.retry_config = Retry(
-            total=10,
+            total=20,
             backoff_factor=0.2,
             status_forcelist=frozenset({500, 502, 503, 504}),
         )
@@ -46,7 +46,7 @@ class OtterClient:
         self.refresh_token_strategy = RefreshTokenStrategy(logger, self)
         self.access_token = None
 
-    def _assert_logged_in(self):
+    def _ensure_logged_in(self):
         if not self.access_token:
             raise ValueError("Not logged in")
 
@@ -64,7 +64,7 @@ class OtterClient:
         self.logger.debug("Logged in")
 
     def get_orders(self, facility_id, limit=75):
-        self._assert_logged_in()
+        self._ensure_logged_in()
 
         params = {"facility_id": facility_id, "limit": limit}
 
@@ -83,7 +83,7 @@ class OtterClient:
         return response.json()
 
     def query(self, operation_name, variables, query):
-        self._assert_logged_in()
+        self._ensure_logged_in()
 
         data = {"operationName": operation_name, "variables": variables, "query": query}
 
